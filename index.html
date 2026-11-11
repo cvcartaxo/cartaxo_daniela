@@ -3,113 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#3d6a38">
+  <meta name="theme-color" content="#f3e6d4">
   <title>Daniela &amp; Vitor — Convite de Casamento</title>
   <meta name="description" content="Você está convidado para o casamento de Daniela e Vitor, em 3 de abril de 2027.">
   <meta property="og:title" content="Daniela &amp; Vitor — Convite de Casamento">
-  <meta property="og:description" content="Toque para abrir o seu convite. 3 de abril de 2027, às 17h.">
+  <meta property="og:description" content="Toque no selo para abrir o convite. 3 de abril de 2027, às 17h.">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilo.css">
 </head>
-<body class="pronto">
-  <main class="palco">
-    <section id="capa" class="capa" role="button" tabindex="0" aria-label="Abrir convite de Daniela e Vitor">
-      <div class="porta porta-esq">
-        <p class="capa-nomes">Daniela<br>&amp; Vitor</p>
-      </div>
-      <div class="porta porta-dir"></div>
+<body>
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <defs>
+      <symbol id="flor" viewBox="-40 -20 80 120">
+        <g fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round">
+          <path d="M0 18 C14 42 8 68 0 96 C-8 68 -14 42 0 18"/>
+          <path d="M0 46 C18 40 28 52 22 64"/>
+          <path d="M0 62 C-16 56 -26 68 -18 80"/>
+          <path d="M-7 58 C-16 50 -14 40 -6 44"/>
+          <path d="M6 72 C14 66 18 74 10 80"/>
+        </g>
+        <g fill="currentColor">
+          <ellipse cx="0" cy="8" rx="7" ry="5" transform="rotate(0)"/>
+          <ellipse cx="0" cy="4" rx="6.5" ry="4.5" transform="rotate(45)"/>
+          <ellipse cx="0" cy="4" rx="6.5" ry="4.5" transform="rotate(-45)"/>
+          <ellipse cx="0" cy="2" rx="6" ry="4" transform="rotate(90)"/>
+          <circle cx="0" cy="6" r="2.4" opacity=".55"/>
+        </g>
+      </symbol>
+      <symbol id="ramo" viewBox="0 0 200 280">
+        <g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round">
+          <path d="M100 270 C96 210 78 160 62 108"/>
+          <path d="M78 196 C48 186 30 198 18 220"/>
+          <path d="M72 156 C46 142 34 118 46 96"/>
+          <path d="M84 132 C112 116 132 122 150 100"/>
+          <path d="M70 118 C52 104 48 84 62 72"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="58" cy="78" r="16" opacity=".28"/>
+          <circle cx="44" cy="70" r="10" opacity=".45"/>
+          <circle cx="72" cy="66" r="11" opacity=".4"/>
+          <circle cx="60" cy="58" r="9" opacity=".55"/>
+          <circle cx="58" cy="72" r="5" opacity=".7"/>
+          <circle cx="148" cy="92" r="13" opacity=".28"/>
+          <circle cx="136" cy="84" r="8" opacity=".42"/>
+          <circle cx="160" cy="82" r="8" opacity=".4"/>
+          <circle cx="148" cy="74" r="6" opacity=".6"/>
+          <circle cx="22" cy="214" r="12" opacity=".26"/>
+          <circle cx="10" cy="206" r="8" opacity=".4"/>
+          <circle cx="34" cy="204" r="8" opacity=".38"/>
+          <circle cx="22" cy="198" r="5" opacity=".6"/>
+          <ellipse cx="86" cy="168" rx="11" ry="5" transform="rotate(-35 86 168)" opacity=".35"/>
+          <ellipse cx="108" cy="124" rx="12" ry="5" transform="rotate(28 108 124)" opacity=".32"/>
+          <ellipse cx="48" cy="112" rx="10" ry="4.5" transform="rotate(-50 48 112)" opacity=".3"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
 
-      <div class="selo" aria-hidden="true">
-        <span class="selo-anel"></span>
-        <span class="selo-letras">DV</span>
+  <main class="palco">
+    <section class="envelope" id="envelope" aria-label="Envelope do convite">
+      <div class="env-corpo">
+        <svg class="relevo relevo-esq" viewBox="0 0 160 220" aria-hidden="true"><use href="#ramo"/></svg>
+        <svg class="relevo relevo-dir" viewBox="0 0 160 220" aria-hidden="true"><use href="#ramo"/></svg>
+        <svg class="relevo relevo-base" viewBox="0 0 160 220" aria-hidden="true"><use href="#ramo"/></svg>
+        <p class="env-nomes">Daniela <span>&amp;</span> Vitor</p>
       </div>
-      <p class="dica">Clique no selo<br>para abrir</p>
+
+      <div class="aba">
+        <svg class="relevo relevo-aba" viewBox="0 0 160 220" aria-hidden="true"><use href="#ramo"/></svg>
+      </div>
+
+      <div class="luz" aria-hidden="true"></div>
+
+      <button type="button" class="selo" id="selo" aria-label="Abrir o convite de Daniela e Vitor">
+        <span class="selo-anel"></span>
+        <span class="selo-letras">D&amp;V</span>
+      </button>
+
+      <p class="dica">Toque no selo para abrir</p>
+      <span class="brilho b1" aria-hidden="true"></span>
+      <span class="brilho b2" aria-hidden="true"></span>
+      <span class="brilho b3" aria-hidden="true"></span>
+      <span class="brilho b4" aria-hidden="true"></span>
+      <span class="brilho b5" aria-hidden="true"></span>
     </section>
 
-    <article id="convite" class="convite" aria-hidden="true">
-      <figure class="cena">
-        <img src="img/aquarela.jpg" alt="Aquarela da Paróquia Sagrada Família ao entardecer" width="1024" height="681">
-      </figure>
-
-      <div class="conteudo">
-        <p class="iniciais" aria-label="D e V">
-          <span class="monograma mono-entrelacado">
-            <span class="letra">D</span>
-            <span class="letra">V</span>
-          </span>
-        </p>
-
-        <blockquote class="versiculo">
-          <p>“Em seu coração o homem planeja seu caminho, mas o Senhor determina seus passos.”</p>
-          <cite>Provérbios 16:9</cite>
-        </blockquote>
-
-        <h1 class="nomes">
-          <span>Daniela</span>
-          <span>e Vitor</span>
-        </h1>
-
-        <p class="mensagem">Com a bênção de Deus e de seus pais, convidam para a cerimônia e recepção de nosso casamento.</p>
-
-        <div class="data">
-          <p class="mes">Abril</p>
-          <div class="linha-data">
-            <span class="lado">Sábado</span>
-            <span class="dia">03</span>
-            <span class="lado">Às 17:00</span>
+    <article class="convite" id="convite" hidden>
+      <header class="hero">
+        <div class="arco-foto">
+          <img src="img/aquarela.jpg" alt="Aquarela da Paróquia Sagrada Família ao entardecer">
+          <svg class="canto canto-esq" viewBox="0 0 160 220" aria-hidden="true"><use href="#ramo"/></svg>
+          <svg class="canto canto-dir" viewBox="0 0 160 220" aria-hidden="true"><use href="#ramo"/></svg>
+          <div class="hero-texto">
+            <p class="sobre">Bem-vindos ao casamento de</p>
+            <h1>Daniela <span>&amp;</span> Vitor</h1>
           </div>
-          <p class="ano">2027</p>
+          <p class="role">Role para baixo <span aria-hidden="true">⌄</span></p>
         </div>
+      </header>
 
-        <p class="contagem" id="contagem" aria-live="polite"></p>
+      <section class="data-bloco" aria-labelledby="titulo-data">
+        <h2 id="titulo-data">A data</h2>
+        <p class="raspe-dica">Raspe para revelar</p>
+        <div class="cartas">
+          <div class="raspa">
+            <p class="valor">03</p>
+            <canvas aria-hidden="true"></canvas>
+            <span class="legenda">Dia</span>
+          </div>
+          <div class="raspa">
+            <p class="valor">Abril</p>
+            <canvas aria-hidden="true"></canvas>
+            <span class="legenda">Mês</span>
+          </div>
+          <div class="raspa">
+            <p class="valor">2027</p>
+            <canvas aria-hidden="true"></canvas>
+            <span class="legenda">Ano</span>
+          </div>
+        </div>
+        <p class="contagem" id="contagem" hidden></p>
+      </section>
 
-        <nav class="botoes" aria-label="Informações do casamento">
-          <button id="btn-cerimonia" type="button" class="botao" aria-haspopup="dialog">
-            <span class="icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2v3M10.5 3.5h3M6 22V11l6-5 6 5v11M3 22h18M10 22v-4a2 2 0 0 1 4 0v4M12 10.5v2"/></svg>
-            </span>
-            <span class="rotulo">Paróquia Sagrada Família</span>
-          </button>
-          <button id="btn-recepcao" type="button" class="botao" aria-haspopup="dialog">
-            <span class="icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            </span>
-            <span class="rotulo">Espaço Grand Jardin</span>
-          </button>
-        </nav>
+      <section class="carta" aria-label="Convite">
+        <div class="moldura">
+          <p class="chamada">Você está convidado para o casamento de</p>
+          <p class="nome">Daniela</p>
+          <p class="com">e</p>
+          <p class="nome">Vitor</p>
+          <p class="recado">Com a bênção de Deus e de seus pais, convidam para a cerimônia e a recepção do nosso casamento.</p>
+          <blockquote>
+            <p>“Em seu coração o homem planeja seu caminho, mas o Senhor determina seus passos.”</p>
+            <cite>Provérbios 16:9</cite>
+          </blockquote>
+        </div>
+      </section>
 
-        <p class="rodape">Clique nos botões acima</p>
-      </div>
+      <section class="programa" aria-labelledby="titulo-programa">
+        <h2 id="titulo-programa">Programação</h2>
+        <ol>
+          <li>
+            <div class="marco">
+              <time>17:00</time>
+              <h3>Cerimônia</h3>
+              <p>Paróquia Sagrada Família</p>
+              <p class="quando">Sábado, 3 de abril de 2027</p>
+              <p class="endereco">SMPW Quadra 27, Trecho 01, Área Especial 04, Park Way, Brasília-DF</p>
+              <a href="https://maps.app.goo.gl/SZ592taMcmcGX2BNA" target="_blank" rel="noopener">Ver no mapa</a>
+            </div>
+          </li>
+          <li>
+            <div class="marco">
+              <time>Em seguida</time>
+              <h3>Recepção</h3>
+              <p>Espaço Grand Jardin</p>
+              <p class="endereco">SOE Q 1 Q 01 – Gama, Brasília – DF</p>
+              <a href="https://maps.app.goo.gl/mC1VqqwKTPvzkj6MA" target="_blank" rel="noopener">Ver no mapa</a>
+            </div>
+          </li>
+        </ol>
+      </section>
     </article>
+
+    <button type="button" class="musica" id="musica" aria-pressed="false" aria-label="Tocar música">
+      <svg class="icone-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l12-7z"/></svg>
+      <svg class="icone-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
   </main>
 
-  <dialog id="dialogo-cerimonia" class="dialogo dialogo-local" aria-labelledby="titulo-cerimonia">
-    <button type="button" class="fechar" data-fechar aria-label="Fechar">&times;</button>
-    <img class="foto-local" src="img/igreja.jpg" alt="Aquarela da Paróquia Sagrada Família" width="1024" height="681">
-    <div class="info-local">
-      <p class="rotulo-local">Cerimônia</p>
-      <h2 id="titulo-cerimonia">Paróquia Sagrada Família</h2>
-      <p class="quando">Sábado, 03 de Abril · 17:00</p>
-      <p class="endereco">SMPW Quadra 27, Trecho 01, Área Especial 04, Park Way, Brasília-DF, CEP: 71.745-700</p>
-      <a class="enviar" href="https://maps.app.goo.gl/SZ592taMcmcGX2BNA" target="_blank" rel="noopener">Ver no mapa</a>
-    </div>
-  </dialog>
-
-  <dialog id="dialogo-recepcao" class="dialogo dialogo-local dialogo-texto" aria-labelledby="titulo-recepcao">
-    <button type="button" class="fechar" data-fechar aria-label="Fechar">&times;</button>
-    <div class="info-local">
-      <p class="rotulo-local">Recepção</p>
-      <h2 id="titulo-recepcao">Espaço Grand Jardin</h2>
-      <p class="quando">Sábado, 03 de Abril</p>
-      <p class="endereco">SOE Q 1 Q 01 – Gama, Brasília – DF, 72427-010</p>
-      <a class="enviar" href="https://maps.app.goo.gl/mC1VqqwKTPvzkj6MA" target="_blank" rel="noopener">Ver no mapa</a>
-    </div>
-  </dialog>
-
+  <audio id="trilha" src="audio/casamento.mp3" loop preload="auto"></audio>
   <script src="js/convite.js"></script>
 </body>
 </html>
