@@ -14,7 +14,11 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 
 body {
   min-height: 100dvh;
@@ -23,10 +27,7 @@ body {
   justify-content: center;
   font-family: var(--serif);
   color: var(--tinta);
-  background:
-    url("../img/textura.png") center / 320px repeat,
-    radial-gradient(ellipse at 50% 42%, #fffaf4 0%, #f6efe6 62%, #efe2d2 100%);
-  background-blend-mode: soft-light, normal;
+  background: #f6efe6;
 }
 
 body::after {
@@ -39,23 +40,30 @@ body::after {
 
 .palco {
   position: relative;
-  width: min(100%, 460px);
-  height: min(100dvh, 940px);
-  margin: 18px;
+  width: 100%;
+  height: 100dvh;
+  margin: 0;
   overflow: hidden;
   background:
     url("../img/textura.png") center / 240px repeat,
     linear-gradient(180deg, #fffdf9, #f7f1e8);
   background-blend-mode: multiply, normal;
-  box-shadow:
-    0 30px 70px rgba(70, 48, 24, .16),
-    0 8px 18px rgba(70, 48, 24, .06);
 }
 
 @media (min-width: 700px) {
+  body {
+    background:
+      url("../img/textura.png") center / 320px repeat,
+      radial-gradient(ellipse at 50% 42%, #fffaf4 0%, #f6efe6 62%, #efe2d2 100%);
+    background-blend-mode: soft-light, normal;
+  }
+
   .palco {
     width: 420px;
     height: min(880px, 92dvh);
+    box-shadow:
+      0 30px 70px rgba(70, 48, 24, .16),
+      0 8px 18px rgba(70, 48, 24, .06);
   }
 }
 
