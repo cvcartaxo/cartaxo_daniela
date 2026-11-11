@@ -48,106 +48,6 @@
     }
   });
 
-  let raspasProntas = false;
-
-  function prepararRaspas() {
-    if (raspasProntas) return;
-    raspasProntas = true;
-    const cartas = Array.prototype.slice.call(document.querySelectorAll(".raspa"));
-
-    cartas.forEach(function (carta) {
-      const canvas = carta.querySelector("canvas");
-      if (!canvas || reduzido) {
-        carta.classList.add("revelada");
-        return;
-      }
-      const ctx = canvas.getContext("2d", { willReadFrequently: true });
-      let arrastando = false;
-      let revelada = false;
-      let passos = 0;
-
-      function desenhar() {
-        const rect = carta.querySelector(".valor").getBoundingClientRect();
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        canvas.width = Math.max(1, Math.round(rect.width * dpr));
-        canvas.height = Math.max(1, Math.round(rect.height * dpr));
-        const g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-        g.addColorStop(0, "#f8e6df");
-        g.addColorStop(0.42, "#e7b7a8");
-        g.addColorStop(0.7, "#f3d4cb");
-        g.addColorStop(1, "#c48b7a");
-        ctx.globalCompositeOperation = "source-over";
-        ctx.fillStyle = g;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(255,255,255,.38)";
-        ctx.beginPath();
-        ctx.ellipse(canvas.width * 0.32, canvas.height * 0.28, canvas.width * 0.26, canvas.height * 0.14, -0.6, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      function ponto(evento) {
-        const rect = canvas.getBoundingClientRect();
-        return [
-          (evento.clientX - rect.left) * (canvas.width / rect.width),
-          (evento.clientY - rect.top) * (canvas.height / rect.height)
-        ];
-      }
-
-      function raspar(evento) {
-        if (revelada) return;
-        const p = ponto(evento);
-        ctx.globalCompositeOperation = "destination-out";
-        ctx.fillStyle = "#000";
-        ctx.beginPath();
-        ctx.arc(p[0], p[1], canvas.width * 0.18, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      function progresso() {
-        if (revelada) return;
-        const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-        let apagados = 0;
-        let total = 0;
-        for (let i = 3; i < pixels.length; i += 64) {
-          total += 1;
-          if (pixels[i] < 24) apagados += 1;
-        }
-        if (total && apagados / total > 0.4) {
-          revelada = true;
-          carta.classList.add("revelada");
-          if (cartas.every(function (item) { return item.classList.contains("revelada"); })) {
-            atualizarContagem();
-            document.getElementById("contagem").hidden = false;
-          }
-        }
-      }
-
-      canvas.addEventListener("pointerdown", function (evento) {
-        arrastando = true;
-        try { canvas.setPointerCapture(evento.pointerId); } catch (erro) { /* o navegador recusa o gesto */ }
-        raspar(evento);
-      });
-      canvas.addEventListener("pointermove", function (evento) {
-        if (!arrastando) return;
-        raspar(evento);
-        passos += 1;
-        if (passos % 5 === 0) progresso();
-      });
-      canvas.addEventListener("pointerup", function () {
-        arrastando = false;
-        progresso();
-      });
-      canvas.addEventListener("pointercancel", function () { arrastando = false; });
-
-      desenhar();
-    });
-
-    if (reduzido) {
-      atualizarContagem();
-      document.getElementById("contagem").hidden = false;
-    }
-  }
-
   function atualizarContagem() {
     const el = document.getElementById("contagem");
     const diff = dataFesta - new Date();
@@ -165,7 +65,6 @@
     convite.hidden = false;
     envelope.classList.add("sumido");
     envelope.setAttribute("aria-hidden", "true");
-    prepararRaspas();
     window.setTimeout(function () { envelope.hidden = true; }, reduzido ? 0 : 900);
   }
 
@@ -182,5 +81,6 @@
 
   selo.addEventListener("click", abrir);
 
+  atualizarContagem();
   window.setInterval(atualizarContagem, 60000);
 })();

@@ -507,10 +507,20 @@ body::after {
 .data-bloco h2,
 .programa h2 { font-size: 2.6rem; }
 
-.raspe-dica {
-  margin: 2px 0 16px;
+.data-aberta {
+  margin-top: 4px;
+  font-family: var(--serif);
   font-style: italic;
-  color: var(--ouro);
+  font-size: 1.85rem;
+  line-height: 1.1;
+  color: var(--ouro-escuro);
+}
+
+.data-hora {
+  margin-top: 6px;
+  font-size: 1.15rem;
+  letter-spacing: .04em;
+  color: var(--tinta);
 }
 
 .raspe-dica::before,
@@ -697,13 +707,23 @@ body::after {
   stroke-linejoin: round;
 }
 
-.marco { width: 46%; }
-.programa li:nth-child(odd) .marco { margin-right: auto; text-align: right; }
-.programa li:nth-child(even) .marco { margin-left: auto; }
+.marco { width: 42%; }
+.programa li:nth-child(odd) .marco {
+  margin-right: auto;
+  padding-right: 22px;
+  text-align: right;
+}
+.programa li:nth-child(even) .marco {
+  margin-left: auto;
+  padding-left: 22px;
+  text-align: left;
+}
 
 .marco time {
+  display: block;
   font-family: var(--script);
-  font-size: 1.7rem;
+  font-size: 1.55rem;
+  line-height: 1.15;
   color: var(--ouro-escuro);
 }
 
