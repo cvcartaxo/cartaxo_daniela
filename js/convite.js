@@ -9,6 +9,24 @@
 
   audio.volume = 0.55;
 
+  function ajustarSelo() {
+    const texto = document.querySelector(".selo-letras");
+    if (!texto || !texto.getBBox) return;
+    texto.removeAttribute("transform");
+    const caixa = texto.getBBox();
+    if (!caixa.width || !caixa.height) return;
+    const centroX = caixa.x + caixa.width / 2;
+    const centroY = caixa.y + caixa.height / 2;
+    const escala = Math.min(1, 54 / caixa.width, 40 / caixa.height);
+    texto.setAttribute(
+      "transform",
+      "translate(60 60) scale(" + escala.toFixed(3) + ") translate(" + (-centroX).toFixed(2) + " " + (-centroY).toFixed(2) + ")"
+    );
+  }
+
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustarSelo);
+  else ajustarSelo();
+
   function marcarMusica(tocando) {
     botaoMusica.classList.toggle("tocando", tocando);
     botaoMusica.setAttribute("aria-pressed", tocando ? "true" : "false");
@@ -54,10 +72,10 @@
         canvas.width = Math.max(1, Math.round(rect.width * dpr));
         canvas.height = Math.max(1, Math.round(rect.height * dpr));
         const g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-        g.addColorStop(0, "#f8e8c0");
-        g.addColorStop(0.42, "#e6c56e");
-        g.addColorStop(0.7, "#f4de9e");
-        g.addColorStop(1, "#c49645");
+        g.addColorStop(0, "#f8e6df");
+        g.addColorStop(0.42, "#e7b7a8");
+        g.addColorStop(0.7, "#f3d4cb");
+        g.addColorStop(1, "#c48b7a");
         ctx.globalCompositeOperation = "source-over";
         ctx.fillStyle = g;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -148,15 +166,19 @@
     envelope.classList.add("sumido");
     envelope.setAttribute("aria-hidden", "true");
     prepararRaspas();
-    window.setTimeout(function () { envelope.hidden = true; }, reduzido ? 0 : 700);
+    window.setTimeout(function () { envelope.hidden = true; }, reduzido ? 0 : 900);
   }
 
   function abrir() {
     if (envelope.classList.contains("abrindo")) return;
     envelope.classList.add("abrindo");
     tocar();
-    window.setTimeout(mostrar, reduzido ? 0 : 1250);
+    window.setTimeout(mostrar, reduzido ? 0 : 1750);
   }
+
+  selo.addEventListener("pointerdown", function () {
+    envelope.classList.add("tocando");
+  });
 
   selo.addEventListener("click", abrir);
 
