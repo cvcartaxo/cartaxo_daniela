@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#3d6a38">
+  <title>Daniela &amp; Vitor — Convite de Casamento</title>
+  <meta name="description" content="Você está convidado para o casamento de Daniela e Vitor, em 3 de abril de 2027.">
+  <meta property="og:title" content="Daniela &amp; Vitor — Convite de Casamento">
+  <meta property="og:description" content="Toque para abrir o seu convite. 3 de abril de 2027, às 17h.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="pronto">
+  <main class="palco">
+    <section id="capa" class="capa" role="button" tabindex="0" aria-label="Abrir convite de Daniela e Vitor">
+      <div class="porta porta-esq">
+        <p class="capa-nomes">Daniela<br>&amp; Vitor</p>
+      </div>
+      <div class="porta porta-dir"></div>
+
+      <div class="selo" aria-hidden="true">
+        <span class="selo-anel"></span>
+        <span class="selo-letras">DV</span>
+      </div>
+      <p class="dica">Clique no selo<br>para abrir</p>
+    </section>
+
+    <article id="convite" class="convite" aria-hidden="true">
+      <figure class="cena">
+        <img src="img/aquarela.jpg" alt="Aquarela da Paróquia Sagrada Família ao entardecer" width="1024" height="681">
+      </figure>
+
+      <div class="conteudo">
+        <p class="iniciais" aria-label="D e V">
+          <span class="monograma mono-entrelacado">
+            <span class="letra">D</span>
+            <span class="letra">V</span>
+          </span>
+        </p>
+
+        <blockquote class="versiculo">
+          <p>“Em seu coração o homem planeja seu caminho, mas o Senhor determina seus passos.”</p>
+          <cite>Provérbios 16:9</cite>
+        </blockquote>
+
+        <h1 class="nomes">
+          <span>Daniela</span>
+          <span>e Vitor</span>
+        </h1>
+
+        <p class="mensagem">Com a bênção de Deus e de seus pais, convidam para a cerimônia e recepção de nosso casamento.</p>
+
+        <div class="data">
+          <p class="mes">Abril</p>
+          <div class="linha-data">
+            <span class="lado">Sábado</span>
+            <span class="dia">03</span>
+            <span class="lado">Às 17:00</span>
+          </div>
+          <p class="ano">2027</p>
+        </div>
+
+        <p class="contagem" id="contagem" aria-live="polite"></p>
+
+        <nav class="botoes" aria-label="Informações do casamento">
+          <button id="btn-cerimonia" type="button" class="botao" aria-haspopup="dialog">
+            <span class="icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2v3M10.5 3.5h3M6 22V11l6-5 6 5v11M3 22h18M10 22v-4a2 2 0 0 1 4 0v4M12 10.5v2"/></svg>
+            </span>
+            <span class="rotulo">Paróquia Sagrada Família</span>
+          </button>
+          <button id="btn-recepcao" type="button" class="botao" aria-haspopup="dialog">
+            <span class="icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </span>
+            <span class="rotulo">Espaço Grand Jardin</span>
+          </button>
+        </nav>
+
+        <p class="rodape">Clique nos botões acima</p>
+      </div>
+    </article>
+  </main>
+
+  <dialog id="dialogo-cerimonia" class="dialogo dialogo-local" aria-labelledby="titulo-cerimonia">
+    <button type="button" class="fechar" data-fechar aria-label="Fechar">&times;</button>
+    <img class="foto-local" src="img/igreja.jpg" alt="Aquarela da Paróquia Sagrada Família" width="1024" height="681">
+    <div class="info-local">
+      <p class="rotulo-local">Cerimônia</p>
+      <h2 id="titulo-cerimonia">Paróquia Sagrada Família</h2>
+      <p class="quando">Sábado, 03 de Abril · 17:00</p>
+      <p class="endereco">SMPW Quadra 27, Trecho 01, Área Especial 04, Park Way, Brasília-DF, CEP: 71.745-700</p>
+      <a class="enviar" href="https://maps.app.goo.gl/SZ592taMcmcGX2BNA" target="_blank" rel="noopener">Ver no mapa</a>
+    </div>
+  </dialog>
+
+  <dialog id="dialogo-recepcao" class="dialogo dialogo-local dialogo-texto" aria-labelledby="titulo-recepcao">
+    <button type="button" class="fechar" data-fechar aria-label="Fechar">&times;</button>
+    <div class="info-local">
+      <p class="rotulo-local">Recepção</p>
+      <h2 id="titulo-recepcao">Espaço Grand Jardin</h2>
+      <p class="quando">Sábado, 03 de Abril</p>
+      <p class="endereco">SOE Q 1 Q 01 – Gama, Brasília – DF, 72427-010</p>
+      <a class="enviar" href="https://maps.app.goo.gl/mC1VqqwKTPvzkj6MA" target="_blank" rel="noopener">Ver no mapa</a>
+    </div>
+  </dialog>
+
+  <script src="js/convite.js"></script>
+</body>
+</html>
